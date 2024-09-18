@@ -1,9 +1,11 @@
 package br.com.app.product.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.app.product.entity.ProductEntity;
 import br.com.app.product.exception.ProductNotFoundException;
@@ -21,20 +23,28 @@ public class ProductService implements IProductService {
 
 	@Override
 	public List<ProductResponseModel> findAll() {
-		return ProductMapper.INSTANCE.toListResponseModel(productRepository.findAll());
+		List<ProductEntity> products = productRepository.findAll();
+		
+		if(!products.isEmpty()) {
+			return ProductMapper.INSTANCE.toListResponseModel(products);
+		}
+		
+		return new ArrayList<>();
 	}
 
 	@Override
 	public ProductResponseModel searchById(Long id) {
 		return ProductMapper.INSTANCE.toResponseModel(findById(id));
 	}
-
+	
+	@Transactional
 	@Override
 	public ProductResponseModel insert(ProductRequestModel productRequestModel) {
 		return ProductMapper.INSTANCE.toResponseModel(
 				save(ProductMapper.INSTANCE.toEntity(productRequestModel)));
 	}
 
+	@Transactional
 	@Override
 	public ProductResponseModel update(Long id, ProductRequestModel productRequestModel) {
 		ProductEntity productEntity = findById(id);
@@ -42,6 +52,7 @@ public class ProductService implements IProductService {
 		return ProductMapper.INSTANCE.toResponseModel(save(productEntity));
 	}
 
+	@Transactional
 	@Override
 	public void removeById(Long id) {
 		ProductEntity productEntity = findById(id);

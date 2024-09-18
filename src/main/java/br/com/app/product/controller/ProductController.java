@@ -1,5 +1,8 @@
 package br.com.app.product.controller;
 
+import static br.com.app.product.constants.RestConstants.PATH_VARIABLE_ID;
+import static br.com.app.product.constants.RestConstants.PATH_PRODUCTS;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -20,7 +23,7 @@ import br.com.app.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping(path = "/products", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = PATH_PRODUCTS, produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class ProductController {
 	
@@ -31,7 +34,7 @@ public class ProductController {
 		return ResponseEntity.ok(productService.findAll());
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping(PATH_VARIABLE_ID)
 	public ResponseEntity<ProductResponseModel> searchById(@PathVariable Long id) {
 		return ResponseEntity.ok(productService.searchById(id));
 	}
@@ -43,13 +46,13 @@ public class ProductController {
 				.body(productService.insert(productRequestModel));
 	}
 
-	@PutMapping("/{id}")
+	@PutMapping(PATH_VARIABLE_ID)
 	public ResponseEntity<ProductResponseModel> update(@PathVariable Long id, 
 			@RequestBody ProductRequestModel productRequestModel) {
 		return ResponseEntity.ok(productService.update(id, productRequestModel));
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping(PATH_VARIABLE_ID)
 	public ResponseEntity<Void> removeById(@PathVariable Long id) {
 		productService.removeById(id);
 		return ResponseEntity.noContent().build();
