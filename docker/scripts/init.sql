@@ -12,12 +12,12 @@ $$;
 
 \c dbrpe;
 
-DROP TABLE IF EXISTS Product;
+DROP TABLE IF EXISTS product;
 
-CREATE TABLE Product (
-    ProductId BIGINT PRIMARY KEY,
-    ProductDescription VARCHAR(255) NOT NULL,
-    ProductStatus VARCHAR(10) CHECK (ProductStatus IN ('ATIVO', 'CANCELADO')) NOT NULL,
-    ProductDateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ProductDateUpdated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE product (
+    product_id BIGSERIAL PRIMARY KEY,
+    product_description VARCHAR(255) NOT NULL,
+    product_status VARCHAR(10) CHECK (product_status IN ('ATIVO', 'CANCELADO')) NOT NULL,
+    product_date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    product_date_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
