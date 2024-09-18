@@ -19,26 +19,26 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Product")
+@Table(name = "product")
 public class ProductEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ProductId")
+	@Column(name = "product_id")
 	private Long id;
 	
-	@Column(name = "ProductDescription")
+	@Column(name = "product_description")
 	private String description;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "ProductStatus")
+	@Column(name = "product_status")
 	private ProductStatusEnum status;
 
 	@CreationTimestamp
-	@Column(name = "ProductDateCreated")
+	@Column(name = "product_date_created")
 	private LocalDateTime dateCreated;
 
 	@UpdateTimestamp
-	@Column(name = "ProductDateUpdated")
+	@Column(name = "product_date_updated")
 	private LocalDateTime dateUpdated;
 }
