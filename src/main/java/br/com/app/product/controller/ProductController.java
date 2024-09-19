@@ -1,7 +1,7 @@
 package br.com.app.product.controller;
 
-import static br.com.app.product.constants.RestConstants.PATH_VARIABLE_ID;
 import static br.com.app.product.constants.RestConstants.PATH_PRODUCTS;
+import static br.com.app.product.constants.RestConstants.PATH_VARIABLE_ID;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.app.product.model.ProductRequestModel;
 import br.com.app.product.model.ProductResponseModel;
-import br.com.app.product.service.ProductService;
+import br.com.app.product.service.IProductService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -27,7 +27,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductController {
 	
-	private final ProductService productService;
+	private final IProductService productService;
 	
 	@GetMapping
 	public ResponseEntity<List<ProductResponseModel>> findAll() {

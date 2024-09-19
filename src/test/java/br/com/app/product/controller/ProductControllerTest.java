@@ -22,7 +22,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import br.com.app.product.enuns.StatusEnum;
 import br.com.app.product.model.ProductRequestModel;
 import br.com.app.product.model.ProductResponseModel;
-import br.com.app.product.service.ProductService;
+import br.com.app.product.service.IProductService;
 import br.com.app.product.testdata.ProductRequestModelTestData;
 import br.com.app.product.testdata.ProductResponseModelTestData;
 
@@ -33,7 +33,7 @@ class ProductControllerTest {
 	private MockMvc mockMvc;
 	
 	@MockBean
-	private ProductService productService;
+	private IProductService productService;
 	
 	@Test
 	void findAll() throws Exception {
