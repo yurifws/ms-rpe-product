@@ -19,7 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import br.com.app.product.enuns.ProductStatusEnum;
+import br.com.app.product.enuns.StatusEnum;
 import br.com.app.product.model.ProductRequestModel;
 import br.com.app.product.model.ProductResponseModel;
 import br.com.app.product.service.ProductService;
@@ -109,11 +109,11 @@ class ProductControllerTest {
 		Long id = 1234L;
 		ProductRequestModel request = ProductRequestModelTestData.getProductRequestModel();
 		request.setDescription("Produto 2");
-		request.setStatus(ProductStatusEnum.CANCELADO);
+		request.setStatus(StatusEnum.CANCELADO);
 		
 		ProductResponseModel expected = ProductResponseModelTestData.getProductResponseModel();
 		expected.setDescription("Produto 2");
-		expected.setStatus(ProductStatusEnum.CANCELADO);
+		expected.setStatus(StatusEnum.CANCELADO);
 		
 		when(productService.update(id, request)).thenReturn(expected);
 		

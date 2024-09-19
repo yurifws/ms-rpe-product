@@ -18,7 +18,7 @@ import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import br.com.app.product.entity.ProductEntity;
-import br.com.app.product.enuns.ProductStatusEnum;
+import br.com.app.product.enuns.StatusEnum;
 import br.com.app.product.exception.ProductNotFoundException;
 import br.com.app.product.model.ProductRequestModel;
 import br.com.app.product.model.ProductResponseModel;
@@ -104,7 +104,7 @@ class ProductServiceTest {
 		
 		ProductEntity expected = ProductEntityTestData.getProductEntity();
 		expected.setDescription("Produto 2");
-		expected.setStatus(ProductStatusEnum.CANCELADO);
+		expected.setStatus(StatusEnum.CANCELADO);
 		
 
 		when(productRepository.findById(id)).thenReturn(Optional.of(ProductEntityTestData.getProductEntity()));
@@ -112,7 +112,7 @@ class ProductServiceTest {
 		
 		ProductRequestModel request = ProductRequestModelTestData.getProductRequestModel();
 		request.setDescription("Produto 2");
-		request.setStatus(ProductStatusEnum.CANCELADO);
+		request.setStatus(StatusEnum.CANCELADO);
 		ProductResponseModel actual = productService.update(id, request);
 
 		verify(productRepository).findById(id);
