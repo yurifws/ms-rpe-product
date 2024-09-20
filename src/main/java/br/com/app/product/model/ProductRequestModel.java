@@ -1,6 +1,6 @@
 package br.com.app.product.model;
 
-import br.com.app.product.enuns.ProductStatusEnum;
+import br.com.app.product.enuns.StatusEnum;
 import lombok.Data;
 
 @Data
@@ -8,5 +8,5 @@ public class ProductRequestModel {
 	
 	private String description;
 	
-	private ProductStatusEnum status;
+	private StatusEnum status;
 }

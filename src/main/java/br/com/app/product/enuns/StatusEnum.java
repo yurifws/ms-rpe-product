@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum ProductStatusEnum {
+public enum StatusEnum {
 
 	ATIVO("ATIVO"),
 	CANCELADO("CANCELADO");

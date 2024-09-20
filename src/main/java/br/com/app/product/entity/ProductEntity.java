@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import br.com.app.product.enuns.ProductStatusEnum;
+import br.com.app.product.enuns.StatusEnum;
 import lombok.Data;
 
 @Data
@@ -32,7 +32,7 @@ public class ProductEntity {
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "product_status")
-	private ProductStatusEnum status;
+	private StatusEnum status;
 
 	@CreationTimestamp
 	@Column(name = "product_date_created")

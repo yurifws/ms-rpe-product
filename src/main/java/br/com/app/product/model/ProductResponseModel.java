@@ -2,7 +2,7 @@ package br.com.app.product.model;
 
 import java.time.LocalDateTime;
 
-import br.com.app.product.enuns.ProductStatusEnum;
+import br.com.app.product.enuns.StatusEnum;
 import lombok.Data;
 
 @Data
@@ -12,7 +12,7 @@ public class ProductResponseModel {
 	
 	private String description;
 	
-	private ProductStatusEnum status;
+	private StatusEnum status;
 	
 	private LocalDateTime dateCreated;
 	
