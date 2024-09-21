@@ -1,0 +1,14 @@
+server:
+ port: 8092
+
+spring:
+ profiles:
+   active: test
+ datasource:
+  url: jdbc:h2:mem:dbDB_CLOSE_DELAY=-1
+  username: user
+  password: password
+ jpa:
+  properties:
+    hibernate:
+     dialect: org.h2.Driver
